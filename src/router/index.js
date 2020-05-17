@@ -8,15 +8,38 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Dawid Moroch',
+      icon: 'mdi-home'
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/add',
+    name: 'Add',
+    component: () => import('../views/Add.vue'),
+    meta: {
+      title: 'Dodaj Stażystę',
+      icon: 'mdi-account-plus'
+    }
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: () => import('../views/List.vue'),
+    meta: {
+      title: 'Lista Stażystów',
+      icon: 'mdi-account-group'
+    }
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    component: () => import('../views/Edit.vue'),
+    meta: {
+      title: 'Edytuj Stażystów',
+      icon: 'mdi-account-edit'
+    }
   }
 ]
 
