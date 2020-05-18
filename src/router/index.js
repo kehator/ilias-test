@@ -29,7 +29,8 @@ const routes = [
     component: () => import('../views/List.vue'),
     meta: {
       title: 'Lista Stażystów',
-      icon: 'mdi-account-group'
+      icon: 'mdi-account-group',
+      overlay: true
     }
   },
   {
@@ -38,7 +39,8 @@ const routes = [
     component: () => import('../views/Edit.vue'),
     meta: {
       title: 'Edytuj Stażystów',
-      icon: 'mdi-account-edit'
+      icon: 'mdi-account-edit',
+      overlay: true
     }
   }
 ]

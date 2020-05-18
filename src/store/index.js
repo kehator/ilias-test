@@ -5,21 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    nav: false
+    overlay: false
   },
   mutations: {
-    TOGGLE_NAV (state) {
-      state.nav = !state.nav
+    SET_OVERLAY (state, payload) {
+      state.overlay = payload
     }
   },
   actions: {
-    toggleNav (context) {
-      context.commit('TOGGLE_NAV')
+    setOverlay (context, payload) {
+      context.commit('SET_OVERLAY', payload)
     }
   }
   // getters: {
-  //   nav: state => {
-  //     return state.nav
+  //   overlay: state => {
+  //     return state.overlay
   //   }
   // }
 })

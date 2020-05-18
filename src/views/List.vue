@@ -14,11 +14,11 @@
         <tr v-for="user in users" :key="user.id">
           <td>{{ user.id }}</td>
           <td>
-            <v-img :src="user.avatar"/>
+            <v-img max-width="128" :src="user.avatar"/>
           </td>
           <td>{{ user.first_name }} {{ user.last_name }}</td>
           <td>
-            <v-btn fab icon color="accent">
+            <v-btn :to="{ name: 'Edit', query: { id: user.id} }" fab icon color="accent">
               <v-icon>mdi-account-edit</v-icon>
             </v-btn>
           </td>
@@ -42,6 +42,7 @@ export default {
     }
   },
   created () {
+    this.$store.dispatch('setOverlay', true)
     this.getUsers()
   },
   computed: {
@@ -54,9 +55,12 @@ export default {
     getUsers () {
       let page = ''
       if (this.page !== 1) page = `?page=${this.page}`
-      this.$http.get('https://reqres.in/api/users' + page).then((response) => {
+      this.$http.get('https://reqres.in/api/users' + page).then(response => {
         this.users = response.data.data
         this.total_pages = response.data.total_pages
+        setTimeout(() => {
+          this.$store.dispatch('setOverlay', false)
+        }, 1000)
       }).catch(() => {
         this.$router.push({ name: 'Home' })
       })
