@@ -1,6 +1,7 @@
 # ilias-test
 
 ## Project setup
+Use node 12
 ```
 yarn install
 ```
